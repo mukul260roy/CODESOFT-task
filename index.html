@@ -3,327 +3,145 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mukul - Devloper Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>To-Do List App</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         * {
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            background-color: rgb(21, 64, 156);
-            color: white;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: 80px;
-            background-color: rgb(13, 49, 80);
+            font-family: 'poppins', sans-serif;
+            box-sizing: border-box;
 
         }
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            list-style: none;
-            margin: 0 23px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-        }
-
-        nav ul li a:hover {
-            color: blueviolet;
-            font-size: 1.04rem;
-        }
-
-
-        .left {
-            font-size: 1.5rem;
-        }
-
-        .firstsection {
-            display: flex;
-            justify-content: space-around;
-            margin: 80px 0;
-        }
-
-        .firstsection>div {
-            width: 30%;
-        }
-
-        .leftsection {
-            font-size: 1.5rem;
-            margin: 70px 0;
-
-        }
-        .leftsection .buttons{
-            padding: 50px 0;
-        }
-
-        .leftsection .btn {
-            padding: 12px;
-            background-color: #05215c;
-    color: white;
-    border: 3px solid white;
-    border-radius: 6px;
-    font-size: 20px;
-    cursor: pointer;
-            
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0e708b, #600e54);
+            padding: 10px;
 
         }
 
-        .rightsection img {
-            width: 90%;
-            margin: 50px 0;
-        }
-
-        .blue {
-            color: rgb(5, 5, 60);
-        }
-
-        .text-gray {
-            color: gray;
-        }
-
-        #element {
-            color: rgb(5, 5, 60);
-        }
-
-        .secondsection {
-            max-width: 80vw;
-            margin: auto;
-            height: 80vh;
-        }
-
-        .secondsection h1 {
-            font-size: 1.6rem;
-        }
-
-        .secondsection .box {
+        .todo-app {
+            width: 100%;
+            max-width: 540px;
             background: white;
-            width: 81vw;
-            height: 2px;
-            margin: 56px 0;
+            margin: 100px auto 20px;
+            padding: 40px 30px 70px;
+            border-radius: 10px;
+        }
+
+        .todo-app h2 {
+            color: #600e54;
             display: flex;
-        }
-
-        .secondsection .vertical {
-            height: 93px;
-            width: 1px;
-            background-color: white;
-            margin: 0 120px;
-        }
-
-        .image-top {
-            width: 30px;
-            position: relative;
-            top: -32px;
-            left: -10px;
-        }
-
-        .vertical-text {
-            position: relative;
-            top: -29px;
-            right: -4px;
-        }
-
-        .vertical-decs {
-            position: relative;
-            width: 168px;
-            font-size: 12px;
-            right: -5px;
-            color: palegreen;
+            align-items: center;
+            margin-bottom: 20px;
 
         }
 
-        footer {
-            background-color: #141e33;
-
+        .todo-app h2 img {
+            width: 50px;
+            margin: 10px;
         }
 
-        .footer {
+        .row {
             display: flex;
-            padding: 20px 100px;
-            justify-content: space-evenly;
+            align-items: center;
+            justify-content: space-between;
+            background: rgb(231, 228, 228);
+            border-radius: 30px;
+            padding-left: 20px;
+            margin-bottom: 20px;
         }
 
-        .footer ul {
+        input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: 10px;
+        }
+
+        button {
+            border: none;
+            outline: none;
+            padding: 16px 50px;
+            background: blueviolet;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 40px;
+        }
+
+        ul li {
             list-style: none;
+            font-size: 17px;
+            padding: 12px 8px 12px 50px;
+            user-select: none;
+            cursor: pointer;
+            position: relative;
         }
 
-        .footer>div {
-            width: 223px;
+        ul li::before {
+            content: '';
+            position: absolute;
+            height: 18px;
+            width: 18px;
+            border-radius: 0%;
+            background-image: url(uncheacked.png.png);
+            background-size: cover;
+            background-position: center;
+            top: 12px;
+            left: 8px;
+
         }
 
-        footer .footer-rights {
-            text-align: center;
-            color: gray;
-            padding: 12px;
+        ul li.checked{
+            color: red;
+            text-decoration: line-through;
 
         }
+        ul li.checked::before{
+            background-image: url(checked.png.png);
+        }
+        ul li span{
+          position: absolute;
+          right: 0;
+          top: 5px;
+          width: 40px;
+          height: 40px;
+          font-size: 22px;
+          color: #555;
+          line-height: 40px;
+          text-align: center;
+          border-radius: 50%;
+
+        }
+        ul li span:hover{
+            background: rgb(162, 161, 161);
+        }
+
     </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="left">Mukul's Portfolio</div>
-            <div class="right">
-                <ul>
-                    <li> <a href="/">Home</li></a>
-                    <li> <a href="/">About</li></a>
-                    <li> <a href="/">Services</li></a>
-                    <li> <a href="/">Projects</li></a>
-                    <li> <a href="/">Contact Me</li></a>
-                </ul>
+    <div class="container">
+        <div class="todo-app">
+            <h2>To-Do List <img src="text.png.png"></h2>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="ADD your text">
+                <button onclick="addTask()">Add</button>
             </div>
-        </nav>
-    </header>
+            <ul id="list-container">
+                <!-- <li class="checked">Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li> -->
 
-    <main>
-        <section class="firstsection">
-            <div class="leftsection">
-                Hi, My name is <span class="blue">Mukul</span>
-                <div>I am Persuing my BTech from Poornima College of Engineering</div>
-                <div>In Computer Science Branch</div>
-                <div>and I am a passionate </div>
-
-                <span id="element"></span>
-                <div class="buttons">
-                    <button class=" btn"> Downlode Resume </button>
-                    <button class="btn "> Visit Github </button>
-                </div>
-            </div>
-            <div class="rightsection">
-                <img src="bg.png.png" alt="">
-            </div>
-        </section>
-        <hr>
-        <section class="secondsection">
-            <span class="text-gray"> What i have done so far</span>
-            <h1>SKILLS</h1>
-            <div class="box">
-                <div class="vertical">
-                    <img class="image-top" src="HTML.png.png" alt="">
-                    <div class="vertical-text">
-                        HTML
-                    </div>
-                    <div class="vertical-decs">
-                        HTML (Hypertext Markup Language) is a text-based approach to describing how content contained
-                        within an
-                        HTML file is structured. This markup tells a web browser how to display text,
-                        images and other forms of multimedia on a webpage.
-                    </div>
-                </div>
-                <div class="vertical">
-                    <img class="image-top" src="CSS.png.png" alt="">
-                    <div class="vertical-text">
-                        CSS
-                    </div>
-                    <div class="vertical-decs">
-                        CSS stands for Cascading Style Sheets. It is a style sheet language which is used to describe
-                        the
-                        look and formatting of a document written in markup language. It provides an additional feature
-                        to HTML.
-                        It is generally used with HTML to change the style of web pages and user interfaces.
-                        It can also be used with any kind of XML documents including plain XML, SVG and XUL.
-                    </div>
-                </div>
-                <div class="vertical">
-                    <img class="image-top" src="javascript.png.png" alt="">
-                    <div class="vertical-text">
-                        JAVASCRIPT
-                    </div>
-                    <div class="vertical-decs">
-                        JavaScript is a scripting language that enables you to create dynamically updating content,
-                        control multimedia, animate images, and pretty much everything else.
-                    </div>
-                </div>
-                <div class="vertical">
-                    <img class="image-top" src="C++.png.png" alt="">
-                    <div class="vertical-text">
-                        C++
-                    </div>
-                    <div class="vertical-decs">
-                        C++ is an object-oriented programming (OOP) language that is viewed by many as the best language
-                        for creating large-scale applications. C++ is a superset of the C language. A related
-                        programming language, Java, is based on C++ but optimized for the distribution of program
-                        objects in a network such as the internet.
-                    </div>
-                </div>
-                <div class="vertical">
-                    <img class="image-top" src="DSA.png.png" alt="">
-                    <div class="vertical-text">
-                        DSA
-                    </div>
-                    <div class="vertical-decs">
-                        DSA is defined as a combination of two separate yet interrelated topics – Data Structure and
-                        Algorithms. DSA is one of the most important skills that every computer science student
-                        must-have. It is often seen that people with good knowledge of these technologies are better
-                        programmers than others and thus, crack the interviews of almost every tech giant.
-                    </div>
-                </div>
-            </div>
-
-
-        </section>
-    </main>
-    <footer>
-        <div class="footer">
-            <div class="footer-first">
-                <h3>Mukul's Developer Portfolio</h3>
-            </div>
-            <div class="footer-second">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Services</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
-            <div class="footer-third">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Services</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
-            <div class="footer-fourth">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Services</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
+            </ul>
         </div>
-        <div class="footer-rights">
-            Copyright &#169; mukulsportfolio.com | All rights reserved
-        </div>
-    </footer>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <!-- Setup and start animation! -->
-    <script>
-        var typed = new Typed('#element', {
-            strings: ['Web Devloper', 'Graphic Designer'],
-            typeSpeed: 50,
-        });
-    </script>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
